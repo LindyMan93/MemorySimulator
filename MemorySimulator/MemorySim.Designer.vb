@@ -22,6 +22,7 @@ Partial Class MemorySim
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MemorySim))
         Me.physicalMemoryBox = New System.Windows.Forms.GroupBox()
         Me.frameSevenL = New System.Windows.Forms.Label()
         Me.frameSixL = New System.Windows.Forms.Label()
@@ -41,25 +42,25 @@ Partial Class MemorySim
         Me.frameZeroButton = New System.Windows.Forms.Button()
         Me.textPageBox = New System.Windows.Forms.GroupBox()
         Me.TPTGrid = New System.Windows.Forms.DataGridView()
+        Me.pNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dataPageBox = New System.Windows.Forms.GroupBox()
+        Me.DPTGrid = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.openFileButton = New System.Windows.Forms.Button()
         Me.nextButton = New System.Windows.Forms.Button()
         Me.instructionsBox = New System.Windows.Forms.GroupBox()
         Me.instructions = New System.Windows.Forms.DataGridView()
         Me.procs = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.pNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DPTGrid = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.physicalMemoryBox.SuspendLayout()
         Me.textPageBox.SuspendLayout()
         CType(Me.TPTGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.dataPageBox.SuspendLayout()
+        CType(Me.DPTGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.instructionsBox.SuspendLayout()
         CType(Me.instructions, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DPTGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'physicalMemoryBox
@@ -152,6 +153,7 @@ Partial Class MemorySim
         '
         'frameSevenButton
         '
+        Me.frameSevenButton.Enabled = False
         Me.frameSevenButton.Location = New System.Drawing.Point(57, 223)
         Me.frameSevenButton.Name = "frameSevenButton"
         Me.frameSevenButton.Size = New System.Drawing.Size(102, 23)
@@ -160,6 +162,7 @@ Partial Class MemorySim
         '
         'frameSixButton
         '
+        Me.frameSixButton.Enabled = False
         Me.frameSixButton.Location = New System.Drawing.Point(57, 194)
         Me.frameSixButton.Name = "frameSixButton"
         Me.frameSixButton.Size = New System.Drawing.Size(102, 23)
@@ -168,6 +171,7 @@ Partial Class MemorySim
         '
         'frameFiveButton
         '
+        Me.frameFiveButton.Enabled = False
         Me.frameFiveButton.Location = New System.Drawing.Point(57, 165)
         Me.frameFiveButton.Name = "frameFiveButton"
         Me.frameFiveButton.Size = New System.Drawing.Size(102, 23)
@@ -176,6 +180,7 @@ Partial Class MemorySim
         '
         'frameFourButton
         '
+        Me.frameFourButton.Enabled = False
         Me.frameFourButton.Location = New System.Drawing.Point(57, 136)
         Me.frameFourButton.Name = "frameFourButton"
         Me.frameFourButton.Size = New System.Drawing.Size(102, 23)
@@ -184,6 +189,7 @@ Partial Class MemorySim
         '
         'frameThreeButton
         '
+        Me.frameThreeButton.Enabled = False
         Me.frameThreeButton.Location = New System.Drawing.Point(57, 107)
         Me.frameThreeButton.Name = "frameThreeButton"
         Me.frameThreeButton.Size = New System.Drawing.Size(102, 23)
@@ -192,6 +198,7 @@ Partial Class MemorySim
         '
         'frameTwoButton
         '
+        Me.frameTwoButton.Enabled = False
         Me.frameTwoButton.Location = New System.Drawing.Point(57, 78)
         Me.frameTwoButton.Name = "frameTwoButton"
         Me.frameTwoButton.Size = New System.Drawing.Size(102, 23)
@@ -200,6 +207,7 @@ Partial Class MemorySim
         '
         'frameOneButton
         '
+        Me.frameOneButton.Enabled = False
         Me.frameOneButton.Location = New System.Drawing.Point(57, 49)
         Me.frameOneButton.Name = "frameOneButton"
         Me.frameOneButton.Size = New System.Drawing.Size(102, 23)
@@ -217,6 +225,7 @@ Partial Class MemorySim
         '
         'frameZeroButton
         '
+        Me.frameZeroButton.Enabled = False
         Me.frameZeroButton.Location = New System.Drawing.Point(57, 20)
         Me.frameZeroButton.Name = "frameZeroButton"
         Me.frameZeroButton.Size = New System.Drawing.Size(102, 23)
@@ -235,6 +244,9 @@ Partial Class MemorySim
         '
         'TPTGrid
         '
+        Me.TPTGrid.AllowUserToAddRows = False
+        Me.TPTGrid.AllowUserToDeleteRows = False
+        Me.TPTGrid.AllowUserToResizeRows = False
         Me.TPTGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.TPTGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.pNum, Me.fNum})
         Me.TPTGrid.Location = New System.Drawing.Point(7, 20)
@@ -242,6 +254,20 @@ Partial Class MemorySim
         Me.TPTGrid.RowHeadersVisible = False
         Me.TPTGrid.Size = New System.Drawing.Size(149, 104)
         Me.TPTGrid.TabIndex = 0
+        '
+        'pNum
+        '
+        Me.pNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.pNum.HeaderText = "Page Number"
+        Me.pNum.Name = "pNum"
+        Me.pNum.ReadOnly = True
+        '
+        'fNum
+        '
+        Me.fNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.fNum.HeaderText = "Frame Number"
+        Me.fNum.Name = "fNum"
+        Me.fNum.ReadOnly = True
         '
         'dataPageBox
         '
@@ -252,6 +278,33 @@ Partial Class MemorySim
         Me.dataPageBox.TabIndex = 2
         Me.dataPageBox.TabStop = False
         Me.dataPageBox.Text = "Data Page Table"
+        '
+        'DPTGrid
+        '
+        Me.DPTGrid.AllowUserToAddRows = False
+        Me.DPTGrid.AllowUserToDeleteRows = False
+        Me.DPTGrid.AllowUserToResizeRows = False
+        Me.DPTGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DPTGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
+        Me.DPTGrid.Location = New System.Drawing.Point(6, 16)
+        Me.DPTGrid.Name = "DPTGrid"
+        Me.DPTGrid.RowHeadersVisible = False
+        Me.DPTGrid.Size = New System.Drawing.Size(150, 98)
+        Me.DPTGrid.TabIndex = 1
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Page Number"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Frame Number"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
         '
         'OpenFileDialog
         '
@@ -268,6 +321,7 @@ Partial Class MemorySim
         '
         'nextButton
         '
+        Me.nextButton.Enabled = False
         Me.nextButton.Location = New System.Drawing.Point(97, 235)
         Me.nextButton.Name = "nextButton"
         Me.nextButton.Size = New System.Drawing.Size(75, 23)
@@ -306,44 +360,6 @@ Partial Class MemorySim
         Me.procs.ReadOnly = True
         Me.procs.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
-        'pNum
-        '
-        Me.pNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.pNum.HeaderText = "Page Number"
-        Me.pNum.Name = "pNum"
-        Me.pNum.ReadOnly = True
-        '
-        'fNum
-        '
-        Me.fNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.fNum.HeaderText = "Frame Number"
-        Me.fNum.Name = "fNum"
-        Me.fNum.ReadOnly = True
-        '
-        'DPTGrid
-        '
-        Me.DPTGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DPTGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
-        Me.DPTGrid.Location = New System.Drawing.Point(6, 16)
-        Me.DPTGrid.Name = "DPTGrid"
-        Me.DPTGrid.RowHeadersVisible = False
-        Me.DPTGrid.Size = New System.Drawing.Size(150, 98)
-        Me.DPTGrid.TabIndex = 1
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Page Number"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Frame Number"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
         'MemorySim
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -355,6 +371,10 @@ Partial Class MemorySim
         Me.Controls.Add(Me.dataPageBox)
         Me.Controls.Add(Me.textPageBox)
         Me.Controls.Add(Me.physicalMemoryBox)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "MemorySim"
         Me.Text = "Memory Simulator"
         Me.physicalMemoryBox.ResumeLayout(False)
@@ -362,9 +382,9 @@ Partial Class MemorySim
         Me.textPageBox.ResumeLayout(False)
         CType(Me.TPTGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.dataPageBox.ResumeLayout(False)
+        CType(Me.DPTGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.instructionsBox.ResumeLayout(False)
         CType(Me.instructions, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DPTGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
