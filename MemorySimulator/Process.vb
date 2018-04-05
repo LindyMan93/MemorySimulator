@@ -193,7 +193,7 @@ Public Class Frame
     Private pID As Integer
     Private Segment As String
     Private pageNumber As Integer
-    Private frame As Integer
+    Private frame As Integer = -1
     Private fText As String
 
     ''' <summary>

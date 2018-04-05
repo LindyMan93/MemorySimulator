@@ -308,7 +308,6 @@ Partial Class MemorySim
         '
         'OpenFileDialog
         '
-        Me.OpenFileDialog.FileName = "OpenFileDialog1"
         '
         'openFileButton
         '

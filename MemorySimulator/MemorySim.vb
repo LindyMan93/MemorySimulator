@@ -1,6 +1,4 @@
-﻿
-
-Imports System.IO
+﻿Imports System.IO
 
 ''' <summary>
 ''' 
@@ -22,13 +20,6 @@ Public Class MemorySim
     Dim AllPossibleFrames As ArrayList = New ArrayList()
     Dim AllProcesses As ArrayList = New ArrayList()
     Dim framePtr As Integer
-
-    Public Sub On_Load() Handles Me.Load
-
-
-
-    End Sub
-
 
     ''' <summary>
     ''' This process is called after a user selected file has been parsed.
@@ -85,6 +76,8 @@ Public Class MemorySim
         Dim frameToExecute As Frame = AllPossibleFrames.Item(0)
         ' Creating arraylist of frames to delete
         Dim deleteFrames As ArrayList = New ArrayList()
+        ' Creating arraylist of processes to delete
+        Dim deleteProc As ArrayList = New ArrayList()
 
         ' If the process is a halt command it will find all
         ' frames of the same process and add it to the 
@@ -107,6 +100,30 @@ Public Class MemorySim
             For Each frame As Frame In deleteFrames
 
                 PhysicalMemoryFrames.Remove(frame)
+
+            Next
+
+            For Each process As Process In AllProcesses
+
+                If process.ProcessID = frameToExecute.ProcessID Then
+
+                    deleteProc.Add(process)
+
+                End If
+
+            Next
+
+            ' Removing processes from user visibility
+            For Each process As Process In deleteProc
+
+                AllProcesses.Remove(process)
+
+            Next
+
+            instructions.Rows.Clear()
+            For Each process As Process In AllProcesses
+
+                instructions.Rows.Add(process.ProcessText)
 
             Next
 
@@ -374,6 +391,10 @@ Public Class MemorySim
             End If
 
         Next
+
+    End Sub
+
+    Private Sub MemorySim_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 
